@@ -110,7 +110,7 @@ function addTaskInDom(task, idTask, isNew = true,compl=false) {
   taskContainer.appendChild(div); // Добавляем задание в контейнер
   /* Если это создание задания, пушим и сохраняем в хранилище */
   if (isNew) {
-    console.log(idTask+" "+task+" "+compl);
+    console.log(idTask+" "+idNew+" "+task+" "+compl);
     taskList.push(taskBody); // Пушим задние
     saveLocal(); // Сохраняем
   }
