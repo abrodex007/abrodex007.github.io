@@ -42,6 +42,7 @@ const addComplite = document.getElementById('chec');
 
 addButton.addEventListener('click', () => {
   /* Создаем новое задание */
+  consle.log(taskInput.value)
   addTaskInDom(taskInput.value, new Date().getTime(),);
   taskInput.value = ''; // Зачищаем инпут
 });
