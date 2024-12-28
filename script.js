@@ -6,7 +6,7 @@
  */
 
 /** @type ToDoItemType[] */
-let taskList = [];
+var taskList = [];
 /** Сохраняет текущий ToDo в localStorage */
 const deleteLocal = () => localStorage.clear();
 const saveLocal = () => localStorage.setItem('tasklist', JSON.stringify(taskList));
@@ -73,12 +73,10 @@ function addTaskInDom(task, idTask, isNew = true,compl=false) {
   checbox.type = 'checkbox';
   if(compl == true)
   {
-    console.log(compl)
     checbox.setAttribute('checked', checbox.checked ? '' : 'checked')
   }
   else
   {
-    console.log(compl)
     checbox.removeAttribute('checked');
   }
   checbox.addEventListener('click', () => {
@@ -109,7 +107,6 @@ function addTaskInDom(task, idTask, isNew = true,compl=false) {
   taskContainer.appendChild(div); // Добавляем задание в контейнер
   /* Если это создание задания, пушим и сохраняем в хранилище */
   if (isNew) {
-    console.log(taskBody);
     taskList.push(taskBody); // Пушим задние
     saveLocal(); // Сохраняем
   }
