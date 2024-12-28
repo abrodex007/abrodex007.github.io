@@ -9,7 +9,7 @@
 var taskList = [];
 /** Сохраняет текущий ToDo в localStorage */
 const deleteLocal = () => localStorage.clear();
-const saveLocal = () => localStorage.setItem('tasklist', JSON.stringify(taskList));
+const saveLocal = () => localStorage.setItem('taskList', JSON.stringify(taskList));
 
 function Perezapis()
 {
@@ -23,11 +23,12 @@ function Perezapis()
 document.addEventListener('DOMContentLoaded', () => {
   /* Пытаемся получить список заданий из хранилища */
   try {
-    taskList = JSON.parse(localStorage.getItem('tasklist'));
+    taskList = JSON.parse(localStorage.getItem('taskList'));
   } catch (e) {
     // Обработчики, если что то пошло не так
     console.error(e);
   }
+  if(taskList == null) taskList = [];
   /* Для каждого элемента отрисовываем задание на странице */
   taskList.forEach(item => addTaskInDom(item.text, item.id, false, item.complite));
 })
@@ -73,10 +74,12 @@ function addTaskInDom(task, idTask, isNew = true,compl=false) {
   checbox.type = 'checkbox';
   if(compl == true)
   {
+    console.log(compl)
     checbox.setAttribute('checked', checbox.checked ? '' : 'checked')
   }
   else
   {
+    console.log(compl)
     checbox.removeAttribute('checked');
   }
   checbox.addEventListener('click', () => {
